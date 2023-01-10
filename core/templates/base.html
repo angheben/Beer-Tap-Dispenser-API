@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+{% load bootstrap4 %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device.width, initial-scale=1, shrink-to-fit-=no">
+    {% bootstrap_css %}
+    <title> Beer Tap Dispenser API </title>
+</head>
+<body>
+    <div class="conteiner">
+        <h1> Beer Tap Dispenser Api </h1>
+        {% block content %} {% endblock %}
+    </div>
+{% bootstrap_javascript jquery='full' %}
+</body>
+</html>
