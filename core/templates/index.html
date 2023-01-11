@@ -1,24 +1,29 @@
-
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-<h3> Select one of the beers bellow to fill your cup </h3>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Picture</th>
-            <th scope="col">Name</th>
-            <th scope="col">Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>{{ id }}</td>
-            <td><img src="{{ beer.beer_pictures.thumb.url }}" alt="{{ produto.nome }}"></td>
-            <td> {{ name }}</td>
-        </tr>
-    </tbody>
-</table>
-<h1> Test2 </h1>
+<head>
+  <link rel="stylesheet" href="{% static '/css/style.css' %}">
+</head>
+<div class="row" >
+    <h3> Select one of the beers bellow to fill your cup </h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Picture</th>
+                <th scope="col">Name</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for beer in beers %}
+            <tr>
+                <td>{{ beer.id }}</td>
+                <td><img src="{{ beer.image.thumb.url }}" alt="{{ produto.nome }}"></td>
+                <td> {{ beer.name }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}

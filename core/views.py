@@ -4,6 +4,7 @@ from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from rest_framework.views import APIView
+from rest_framework.response import Response
 from .serializer import BeerSerializer
 from rest_framework import status
 
@@ -12,7 +13,7 @@ class IndexBeer(ListView):
     template_name = 'index.html'
     model = Beer
     queryset = Beer.objects.all()
-    context_object_name = 'beer'
+    context_object_name = 'beers'
 
 
 class CreateBeer(CreateView):
@@ -38,10 +39,12 @@ class BeerAPIView(APIView):
     This class represent the API views of the beers
     """
 
-    def get_stock_beer(self, request, form=None):
+    serializer_class = BeerSerializer
+
+    def get(self, request, form=None):
         """
         This method serves to display the beers in the dispenser in the day
-        :param request: API
-        :return: The beers in stock
         """
-
+        queryset = Beer.objects.all()
+        serializer = BeerSerializer(queryset, many=True)
+        return Response(serializer.data)

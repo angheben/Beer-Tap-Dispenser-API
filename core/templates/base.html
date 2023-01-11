@@ -1,11 +1,13 @@
 
 <!DOCTYPE html>
 {% load bootstrap4 %}
+{% bootstrap_css %}
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device.width, initial-scale=1, shrink-to-fit-=no">
-    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
     <title> Beer Tap Dispenser API </title>
 </head>
 <body>

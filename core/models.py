@@ -3,7 +3,7 @@ from stdimage.models import StdImageField
 
 class Beer(models.Model):
     """
-    This class represent a beer
+    This class represent a beer object
     """
     type = [
         ("Pilsen", "Pilsen"),
@@ -20,7 +20,7 @@ class Beer(models.Model):
     cost_per_liter = models.DecimalField(name='cost_per_liter', decimal_places=2, max_digits=10)
     flow_volume = models.DecimalField(name='flow_volume', decimal_places=2, max_digits=10)
     type = models.CharField(name="type", choices=type, max_length=100)
-    image = StdImageField(name='image', upload_to='beer_pictures', variations={"thumb": {"width": 100, "height": 200,
+    image = StdImageField(name='image', upload_to='beer_pictures', variations={"thumb": {"width": 50, "height": 100,
                                                                                          "crop": True}})
     times_used = models.IntegerField(name='times_used', default=0)
 
