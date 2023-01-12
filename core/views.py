@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .models import Beer
-from django.views.generic import ListView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -45,6 +44,7 @@ class BeerAPIView(APIView):
         """
         This method serves to display the beers in the dispenser in the day
         """
-        queryset = Beer.objects.all()
-        serializer = BeerSerializer(queryset, many=True)
+        model = Beer
+        beers = Beer.objects.all()
+        serializer = BeerSerializer(beers, many=True)
         return Response(serializer.data)

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'core',
     'rest_framework',
+    'django.contrib.humanize'
 ]
 
 MIDDLEWARE = [
