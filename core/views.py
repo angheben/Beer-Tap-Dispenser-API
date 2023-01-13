@@ -46,5 +46,15 @@ class BeerAPIView(APIView):
         """
         model = Beer
         beers = Beer.objects.all()
+        times_used = Beer.objects.filter()
         serializer = BeerSerializer(beers, many=True)
+        return Response(serializer.data)
+
+    def put(self, request, form=None):
+        """
+        This method serves to update the times_used variable when the dispenser be used
+        """
+        model = Beer
+        times_used = Beer.objects.update_or_create(times_used=times_used + 1)
+        serializer = BeerSerializer(times_used, many=True)
         return Response(serializer.data)
