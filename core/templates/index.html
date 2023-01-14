@@ -26,6 +26,7 @@
                 <td> {{ beer.name }}</td>
                 <td> {{ beer.cost_per_liter|intcomma }}</td>
                 <td>
+                <a class="btn btn-danger" href="{% url 'delete_product' product.pk %}">Add</a>
                 <a class="btn btn-warning" href="{% url 'update_product' product.pk %}">Edit</a>
                 <a class="btn btn-danger" href="{% url 'delete_product' product.pk %}">Delete</a>
               </td>
