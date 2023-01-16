@@ -26,9 +26,11 @@
                 <td> {{ beer.name }}</td>
                 <td> {{ beer.cost_per_liter|intcomma }}</td>
                 <td>
-                <a class="btn btn-danger" href="{% url 'delete_product' product.pk %}">Add</a>
-                <a class="btn btn-warning" href="{% url 'update_product' product.pk %}">Edit</a>
-                <a class="btn btn-danger" href="{% url 'delete_product' product.pk %}">Delete</a>
+                <form method="POST" action="{% url 'beer_api' beer.pk %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="times_used" value="1">
+                    <button class="btn btn-secondary" type="submit">Fill my cup</button>
+                </form>
               </td>
             </tr>
             {% endfor %}
