@@ -35,19 +35,13 @@ class BeerAPIView(APIView):
         return Response(serializer.data)
 
     def put(self, request, pk, form=None):
-        """
-        This method serves to update the times_used variable when the dispenser be used
-        """
-        beer = get_object_or_404(Beer, pk=pk)
-        beer.times_used += int(request.data.get('times_used', 1))
-        beer.save()
-        serializer = BeerSerializer(beer)
-        return Response(serializer.data)
+        pass
 
     @action(detail=True ,methods=['post'])
     def post(self, request, pk, form=None):
         """
-        This method serves to update the times_used variable when the dispenser be used
+        This method serves to update the times_used variable when the dispenser be used, in other words, when the user
+        click in the "Serve Beer" button
         """
         beer = get_object_or_404(Beer, pk=pk)
         beer.times_used += int(request.data.get('times_used', 1))

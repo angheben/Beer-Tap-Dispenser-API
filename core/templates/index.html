@@ -29,7 +29,7 @@
                 <form method="POST" action="{% url 'beer_api' beer.pk %}">
                     {% csrf_token %}
                     <input type="hidden" name="times_used" value="1">
-                    <button class="btn btn-secondary" type="submit">Fill my cup</button>
+                    <button class="btn btn-primary" type="submit"> Serve Beer </button>
                 </form>
               </td>
             </tr>
