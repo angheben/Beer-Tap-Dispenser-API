@@ -23,6 +23,7 @@ class Beer(models.Model):
     image = StdImageField(name='image', upload_to='beer_pictures', variations={"thumb": {"width": 50, "height": 100,
                                                                                          "crop": True}})
     times_used = models.IntegerField(name='times_used', default=0)
+    total_cost = models.DecimalField(name='total_cost', decimal_places=2, default=0, max_digits=100)
 
     def __str__(self):
         return self.name
