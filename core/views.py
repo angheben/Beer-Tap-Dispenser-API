@@ -42,6 +42,7 @@ class BeerAPIView(APIView):
         """
         This method serves to update the times_used variable when the dispenser be used, in other words, when the user
         click in the "Serve Beer" button, the times_used variable will be serialized and increase in one unit
+        Furthermore, the total_cost variable will be calculated and serialed to
         """
         beer = get_object_or_404(Beer, pk=pk)
         if request.method == 'POST':
