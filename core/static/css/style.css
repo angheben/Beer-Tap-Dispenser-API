@@ -1,5 +1,10 @@
 .row {
   margin: 50px; /* this will add a margin of 20 pixels to all sides of the element */
+  background-color: #532920 !important;
+}
+
+#table {
+  background-color: #532920;
 }
 
 #animation-container iframe {
@@ -9,9 +14,4 @@
   transform: translate(-50%, -50%);
   width: 100%;
   height: 90%;
-}
-
-#content {
-  /* make sure your content is hidden while the animation is playing */
-  display: none;
 }

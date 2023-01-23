@@ -34,10 +34,7 @@ class BeerAPIView(APIView):
         serializer = BeerSerializer(beers, many=True)
         return Response(serializer.data)
 
-    def put(self, request, pk, form=None):
-        pass
-
-    @action(detail=True ,methods=['post'])
+    @action(detail=True ,methods=['post', 'put'])
     def post(self, request, pk, form=None):
         """
         This method serves to update the times_used variable when the dispenser be used, in other words, when the user
@@ -45,11 +42,16 @@ class BeerAPIView(APIView):
         Furthermore, the total_cost variable will be calculated and serialed to
         """
         beer = get_object_or_404(Beer, pk=pk)
-        if request.method == 'POST':
-            beer.total_cost = beer.cost_per_liter * beer.flow_volume
+
+        if 'reset' in request.POST:
+            beer.total_cost = 0
+            beer.times_used = 0
             beer.save()
 
-        beer.times_used += int(request.data.get('times_used', 1))
-        beer.save()
+        if 'increment' in request.POST:
+            beer.total_cost = beer.cost_per_liter * beer.flow_volume * (beer.times_used + 1)
+            beer.times_used += int(request.data.get('times_used', 1))
+            beer.save()
+
         serializer = BeerSerializer(beer)
         return Response(serializer.data)
