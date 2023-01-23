@@ -12,7 +12,7 @@ In the menu we have a very simple intro video
 
 Bellow to this video you will have a table with some register beers and 2 buttons as you can see bellow
 
-![image](https://user-images.githubusercontent.com/113387966/214108990-f024d408-93ae-4d07-aad6-b0ea595f3508.png)
+![image](https://user-images.githubusercontent.com/113387966/214118608-fb6402fa-9c20-47fb-93cf-d0ee50d36ece.png)
 
 When you simulate a fill cup the answer will be this API:
 
