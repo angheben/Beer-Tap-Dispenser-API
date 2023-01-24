@@ -15,6 +15,11 @@ class Beer(models.Model):
         ("Pale Ale", "Pale Ale"),
     ]
 
+    status = [
+        ("Open", "Open"),
+        ("Close", "Close"),
+    ]
+
     name = models.CharField(name='name' ,max_length=100)
     brand = models.CharField(name='brand', max_length=100)
     cost_per_liter = models.DecimalField(name='cost_per_liter', decimal_places=2, max_digits=10)
@@ -24,6 +29,6 @@ class Beer(models.Model):
                                                                                          "crop": True}})
     times_used = models.IntegerField(name='times_used', default=0)
     total_cost = models.DecimalField(name='total_cost', decimal_places=2, default=0, max_digits=100)
-
+    status = models.CharField(name='status', choices=status, max_length=10, default=False)
     def __str__(self):
         return self.name

@@ -43,6 +43,11 @@ class BeerAPIView(APIView):
         """
         beer = get_object_or_404(Beer, pk=pk)
 
+        def timer(request):
+            if 'start' in request.POST:
+                pass
+
+
         if 'reset' in request.POST:
             beer.total_cost = 0
             beer.times_used = 0

@@ -40,11 +40,11 @@
                 <form method="POST" action="{% url 'beer_api' beer.pk %}">
                     {% csrf_token %}
                     <input type="hidden" name="increment" value="1">
-                    <button class="btn btn-primary" type="submit" name="increment"> Press here to server your beer</button>
+                    <button class="btn btn-primary" type="submit" name="increment"> Press here to serve 1 L of beer </button>
                 </form>
                 <form method="POST" action="{% url 'beer_api' beer.pk%}">
                     <input type="hidden" name="reset">
-                    <button class="btn btn-danger" type="submit" name="reset"> Press here to reset this beer</button>
+                    <button class="btn btn-danger" type="submit" name="reset"> Press here to reset your card</button>
                 </form>
             </td>
         </tr>
