@@ -4,7 +4,7 @@ So a good solution for that it's a responsive API able to calculate how many tim
 
 In this project I develop a simlulation of a Beer Dispenser to solve this problem
 
-The idea here it's to simulate an user filling his cup with his favorite beer and every time he does it, an API is generating as an answer
+The idea here it's to simulate an user filling his cup with his favorite beer and every time he does it, an API is generated showing which beer he choose, how much liters have consumed and the final price of his consume.
 
 In the menu we have a very simple intro video
 
